@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: edusubmit-discovery-server
+  config:
+    import: optional:configserver:http://config.platform:8888
+
+cloud:
+  config:
+    url: http://config.platform:8888
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
